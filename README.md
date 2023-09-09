@@ -18,7 +18,7 @@ Output
 
 ![alt text](example.png)
 
-with the custom LoRA SDXL model (jschoormans/zara-striped-shirt)[https://replicate.com/jschoormans/zara-striped-shirt/versions/28ec2be75b583952776c0947fac0cc3985b87c0c2b165f42711f03972ac3771a]
+with the custom LoRA SDXL model [jschoormans/zara-striped-shirt](https://replicate.com/jschoormans/zara-striped-shirt/versions/28ec2be75b583952776c0947fac0cc3985b87c0c2b165f42711f03972ac3771a)
 
 
 ## Install and run
@@ -37,6 +37,15 @@ If required, install cog:
 Download the standard weights, and a run a prediction
 
     cog run script/download-weights 
-    cog predict -i image=@demo.jpg -i prompt="a latina ballerina, romantic sunset, 4k photo"
+
+Download your custom weights and unpack to a dir called lora
+
+    wget https://pbxt.replicate.delivery/OB8We6D85u1zVSTjpF4noNfSxDEueIQLE8sfM9NWoAY0pxIGB/trained_model.tar
+    mkdir lora  # Create the directory if it doesn't exist
+    tar -xvf trained_model.tar -C lora  # Extract the tar file into the directory
+
+Then, you can run predictions. Use the paramater lora_scale: 
+
+    cog predict -i image=@demo.jpg -i prompt="a person wearing a TOK, 4k photo" -i lora_scale=0.8
 
 
