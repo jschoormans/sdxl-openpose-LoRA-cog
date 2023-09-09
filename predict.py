@@ -57,7 +57,7 @@ class Predictor(BasePredictor):
         print("Loading Unet LoRA")
         self.is_lora=True
 
-        tensors = load_file("lora_zara/lora.safetensors")
+        tensors = load_file("lora/lora.safetensors")
         unet = self.pipe.unet
         unet_lora_attn_procs = {}
         name_rank_map = {}
@@ -100,10 +100,10 @@ class Predictor(BasePredictor):
             [self.pipe.text_encoder, self.pipe.text_encoder_2],
             [self.pipe.tokenizer, self.pipe.tokenizer_2]
         )
-        handler.load_embeddings("lora_zara/embeddings.pti")
+        handler.load_embeddings("lora/embeddings.pti")
 
         # load params
-        with open("lora_zara/special_params.json", "r") as f:
+        with open("lora/special_params.json", "r") as f:
             params = json.load(f)
         self.token_map = params
         self.tuned_model = True

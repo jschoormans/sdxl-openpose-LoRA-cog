@@ -4,3 +4,5 @@ control-cache
 model-cache
 pose-cache
 refiner-cache
+lora
+*.tar

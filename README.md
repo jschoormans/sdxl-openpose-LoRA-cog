@@ -10,13 +10,15 @@ This is based on [thibaud/controlnet-openpose-sdxl-1.0](https://huggingface.co/t
 
 Inputs:
 
-"a latina ballerina, romantic sunset, 4k photo"
+"Person wearing a TOK shirt"
 
-![alt text](demo.jpg)
+![alt text](demo2.png)
 
 Output
 
-![alt text](output.png)
+![alt text](example.png)
+
+with the custom LoRA SDXL model (jschoormans/zara-striped-shirt)[https://replicate.com/jschoormans/zara-striped-shirt/versions/28ec2be75b583952776c0947fac0cc3985b87c0c2b165f42711f03972ac3771a]
 
 
 ## Install and run
