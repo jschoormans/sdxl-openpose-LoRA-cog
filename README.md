@@ -34,17 +34,12 @@ If required, install cog:
     sudo chmod +x /usr/local/bin/cog
 
 
-Download the standard weights, and a run a prediction
+Download the weights: SDXL, controlnet weights, and your LoRA. Change the URL in the script to your own weights URL before running.
 
     cog run script/download-weights 
 
-Download your custom weights and unpack to a dir called lora
 
-    wget https://pbxt.replicate.delivery/OB8We6D85u1zVSTjpF4noNfSxDEueIQLE8sfM9NWoAY0pxIGB/trained_model.tar
-    mkdir lora  # Create the directory if it doesn't exist
-    tar -xvf trained_model.tar -C lora  # Extract the tar file into the directory
-
-Then, you can run predictions. Use the paramater lora_scale: 
+Then, you can run predictions. Use the paramater lora_scale to control LoRA strength: 
 
     cog predict -i image=@demo.jpg -i prompt="a person wearing a TOK, 4k photo" -i lora_scale=0.8
 
