@@ -60,3 +60,22 @@ pipe = DiffusionPipeline.from_pretrained(
     variant="fp16",
 )
 pipe.save_pretrained(REFINER_CACHE, safe_serialization=True)
+
+#%% donwload the custom LoRA weights 
+import requests
+import os
+import tarfile
+
+# Download the tar file
+url = 'https://pbxt.replicate.delivery/OB8We6D85u1zVSTjpF4noNfSxDEueIQLE8sfM9NWoAY0pxIGB/trained_model.tar'
+response = requests.get(url)
+with open('trained_model.tar', 'wb') as f:
+    f.write(response.content)
+
+# Create the directory if it doesn't exist
+if not os.path.exists('lora'):
+    os.makedirs('lora')
+
+# Extract the tar file into the directory
+with tarfile.open('trained_model.tar', 'r') as tar_ref:
+    tar_ref.extractall('lora')
